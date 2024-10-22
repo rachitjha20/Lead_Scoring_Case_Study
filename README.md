@@ -12,8 +12,7 @@ This repository contains a case study focused on predicting lead conversion for 
 - [Exploratory Data Analysis (EDA)](#exploratory-data-analysis)
 - [Model Building](#model-building)
 - [Model Evaluation](#model-evaluation)
-- [Conclusion](#conclusion)
-- [Graphs](#graphs)
+- [Recommendations](#Recommendations)
 
 ---
 
@@ -73,15 +72,23 @@ We performed the following preprocessing steps:
 We performed an EDA to understand the distribution of data and identify important patterns.
 
 - **Graph 1**: Distribution of Total Time Spent on Website.
-  
+
+  - ![image](https://github.com/user-attachments/assets/e2366fc3-5de1-41c3-9145-59239b814034)
+
   _Label: Insert graph showing the distribution of the total time spent on the website._
 
 - **Graph 2**: Conversion rate by Lead Source.
-  
+
+
+  - ![image](https://github.com/user-attachments/assets/de05ee3d-a60b-49c1-bf2f-00711b078fc1)
+
   _Label: Insert graph showing the conversion rate for each lead source._
 
 - **Graph 3**: Conversion rate by Last Activity.
-  
+
+
+  - ![image](https://github.com/user-attachments/assets/92ce425b-19d6-4216-9164-d912b5d4dd4f)
+
   _Label: Insert graph showing the conversion rate for the last activity performed by leads._
 
 ## Model Building
@@ -90,12 +97,6 @@ We used the following models to predict lead conversion:
 
 - **Logistic Regression**:
   A baseline model for binary classification tasks.
-  
-- **Decision Trees**:
-  To capture non-linear relationships between features.
-  
-- **Random Forest**:
-  An ensemble technique to improve model performance.
 
 The final dataset was split into training and testing sets. Recursive Feature Elimination (RFE) was applied for feature selection.
 
@@ -115,32 +116,29 @@ fit = rfe.fit(X_train, y_train)
 
 We evaluated the models using the following metrics:
 
-- **Accuracy**: The proportion of correctly classified leads.
-- **Precision and Recall**: To measure the quality of positive predictions.
-- **F1-Score**: A balance between precision and recall.
+- Accuracy : 78.61 %
+- Sensitivity : 77.18 %
+- Specificity : 79.92 %
 
 - **Graph 4**: ROC Curve of the models.
-  
+
+
+  - ![image](https://github.com/user-attachments/assets/e02cd630-8102-4996-9a1a-e6cf3e04c9ce)
+
   _Label: Insert ROC curve comparison between models._
 
-## Conclusion
+## Recommendations:
 
-Based on the analysis, we identified the following key factors that influence lead conversion:
+* The company **should make calls** to the leads coming from the `lead sources "Welingak Websites"`  and `"Reference"` as these are more likely to get converted.
+* The company **should make calls** to the leads who are the `"working professionals"` as they are more likely to get converted.
+* The company **should make calls** to the leads who spent `"more time on the websites"` as these are more likely to get converted.
+* The company **should make calls** to the leads coming from the `lead sources "Olark Chat"` as these are more likely to get converted.
+* The company **should make calls** to the leads whose `last activity` was `SMS Sent` as they are more likely to get converted.
 
-1. **Time Spent on Website**: Leads who spent more time on the website were more likely to convert.
-2. **Lead Source**: The source of the lead played a significant role in determining the likelihood of conversion.
-3. **Last Activity**: Certain activities like `Olark Chat` and `SMS Sent` had higher conversion rates.
-
-We also found that the Random Forest model performed the best, achieving the highest accuracy and F1-score.
-
-## Graphs
-
-Make sure to place the following graphs in the appropriate sections of the notebook:
-**Note** : - 1-> Yes  -0 -> No
-1. [Distribution of Total Time Spent on Website!](src/total_time_spent_on_web.png)
-2. [Conversion rate by Lead Source](src/lead_source_conversion.png)
-3. [Conversion rate by Last Activity](src/last_acitvity_conversion.png)
-4. [ROC Curve comparison for Logistic Regression](src/ROC_Curve_Logistic_Regression.png)
+* The company **should not make calls** to the leads whose `last activity` was `"Olark Chat Conversation"` as they are not likely to get converted.
+* The company **should not make calls** to the leads whose `lead origin` is `"Landing Page Submission"` as they are not likely to get converted.
+* The company **should not make calls** to the leads whose `Specialization` was `"Others"` as they are not likely to get converted.
+* The company **should not make calls** to the leads who chose the option of `"Do not Email" as "yes"` as they are not likely to get converted.
 
 ---
 
